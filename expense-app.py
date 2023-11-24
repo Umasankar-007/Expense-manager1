@@ -23,17 +23,21 @@ L_ID=c_list[-1]
 # print(L_ID)
 
 
-#id increase by 1 and make it global variable         #cell 6
-c_int=int(L_ID)
-c_int+=1
-n_id=str(c_int)
-global n_id
+#id increase by 1 and make it global variable         #cell 6   needs to uncomment in jupyter notebook/kaggle
+# c_int=int(L_ID)
+# c_int+=1
+# n_id=str(c_int)
+# global n_id
 
 class Expense:           #cell 7
-    def __init__(self,ei):
+    def __init__(self,ei,L_ID):
         self.ei=ei
+        self.L_ID=L_ID
     def add_expense(self,category,name,date,amount): 
-        global n_id
+        c_int=int(L_ID)
+        c_int+=1
+        n_id=str(c_int)
+        # global n_id
         self.ei[n_id]={'category':category,'name':name,'date':date,'amt':amount}
         print("DETAILS HAVE BEEN UPDATED...")
         
@@ -102,7 +106,7 @@ class Expense:           #cell 7
             
             
 def main():      #cell 8
-    exp=Expense(ei) #object create
+    exp=Expense(ei,L_ID) #object create
     print("Welcome to Expense Manager")
     while True:
         try:
